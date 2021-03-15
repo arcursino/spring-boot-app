@@ -63,7 +63,7 @@ class SpringBootAppApplicationTests {
     
     /*@Test
     void testaBuscaUsuarioNomeContains() {
-        List<Usuario> usuarios = usuarioRepo.findbyNomeContainsIgnoreCase("AR");
+        List<Usuario> usuarios = usuarioRepo.findbyNomeContainsIgnoreCase("A");
         assertFalse(usuarios.isEmpty());    
 
     }
@@ -90,5 +90,25 @@ class SpringBootAppApplicationTests {
 
     }
     */
+
+    @Test
+    void testaBuscaUsuarioNomeSenhaQuery() {
+        Usuario usuario = usuarioRepo.buscaUsuarioPorNomeESenha("Ariana", "SenhaF0rte");
+        assertNotNull(usuario);    
+
+    }
+
+    @Test
+    void testaBuscaUsuarioNomeQuery() {
+        Usuario usuario = usuarioRepo.buscaUsuarioPorNome("Ariana");
+        assertNotNull(usuario);    
+
+    }
+
+    void testaBuscaUsuarioNomeAutorizacaoQuery() {
+        List<Usuario> usuarios = usuarioRepo.buscaUsuarioPorNomeAutorizacao("ROLE_ADMIN");
+        assertFalse(usuarios.isEmpty());    
+
+    }
 
 }
